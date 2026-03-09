@@ -1,0 +1,2008 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>#RedTieAffair — Production Moodboard v2</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --white:    #F2F0EA;
+  --chrome:   #BEC2CA;
+  --grey-l:   #7E8188;
+  --grey-m:   #42444A;
+  --grey-d:   #1E2024;
+  --black:    #0C0C0E;
+  --red:      #B01C14;
+  --red-a:    #D42B1E;
+  --red-b:    #FF3322;
+  --paper:    #1A1B1E;
+}
+
+html { background: #080809; }
+body {
+  font-family: 'Space Mono', monospace;
+  background: #080809;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* ═══ OUTER WRAPPER ═══════════════════════════ */
+.wrapper {
+  width: 1440px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* ════════════════════════════════════════════
+   TOP NAV / HEADER
+════════════════════════════════════════════ */
+.topnav {
+  height: 44px;
+  background: var(--black);
+  border-bottom: 1px solid #1c1c1e;
+  display: flex; align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  position: sticky; top: 0; z-index: 200;
+}
+.nav-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 14px; font-weight: 300;
+  letter-spacing: 0.28em; color: var(--white);
+  text-transform: uppercase;
+}
+.nav-brand strong { color: var(--red-a); font-weight: 400; }
+.nav-tabs {
+  display: flex; gap: 2px;
+}
+.tab {
+  padding: 0 14px; height: 44px;
+  display: flex; align-items: center;
+  font-size: 7.5px; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--grey-l);
+  cursor: pointer; border-bottom: 2px solid transparent;
+  transition: all 0.25s ease;
+  background: none; border-top: none; border-left: none; border-right: none;
+  font-family: 'Space Mono', monospace;
+}
+.tab:hover { color: var(--white); }
+.tab.active { color: var(--red-a); border-bottom-color: var(--red-a); }
+.nav-meta {
+  font-size: 7px; letter-spacing: 0.14em;
+  color: #2e2e32; text-transform: uppercase;
+}
+
+/* ════════════════════════════════════════════
+   PANELS (tab content)
+════════════════════════════════════════════ */
+.panel { display: none; }
+.panel.active { display: block; }
+
+/* ════════════════════════════════════════════
+   PANEL 1: MOODBOARD GRID
+════════════════════════════════════════════ */
+.board {
+  width: 1440px; height: 852px;
+  display: grid;
+  grid-template-columns: 200px 1fr 1fr 1fr;
+  grid-template-rows: 44px 185px 1fr 1fr 72px;
+  gap: 2px;
+  background: #141416;
+}
+
+/* Section header rows */
+.sec-head {
+  background: #0C0C0E;
+  display: flex; align-items: center;
+  padding: 0 14px; gap: 10px;
+  border-bottom: 1px solid #1a1a1c;
+}
+.sec-head-label {
+  font-size: 7px; letter-spacing: 0.24em;
+  text-transform: uppercase; color: var(--grey-m);
+}
+.sec-head-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 11px; font-weight: 300; font-style: italic;
+  color: rgba(255,255,255,0.25); letter-spacing: 0.08em;
+}
+.red-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--red-a);
+  box-shadow: 0 0 8px var(--red-a);
+}
+
+/* ─ PALETTE COLUMN ─ */
+.palette {
+  grid-column: 1; grid-row: 1 / 6;
+  background: #0E0E10;
+  border-right: 2px solid #1c1c1e;
+  display: flex; flex-direction: column;
+}
+.pal-header {
+  padding: 14px 16px 10px;
+  border-bottom: 1px solid #1a1a1c;
+  flex-shrink: 0;
+}
+.pal-title {
+  font-size: 7px; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--grey-m);
+}
+.pal-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 9px; font-style: italic;
+  color: #2e2e32; margin-top: 3px;
+}
+.swatches {
+  flex: 1; display: flex; flex-direction: column; overflow: hidden;
+}
+.sw {
+  flex: 1; position: relative;
+  display: flex; flex-direction: column;
+  justify-content: flex-end; padding: 8px 12px;
+  cursor: pointer;
+  transition: flex 0.5s cubic-bezier(0.23,1,0.32,1);
+  overflow: hidden;
+}
+.sw:hover { flex: 2.5; }
+.sw-name {
+  font-size: 6.5px; letter-spacing: 0.16em;
+  text-transform: uppercase; color: rgba(255,255,255,0.3);
+  position: relative; z-index: 2;
+}
+.sw-hex {
+  font-size: 6px; letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.14);
+  display: block; margin-top: 1px;
+  position: relative; z-index: 2;
+}
+.sw-meaning {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 8px; font-style: italic;
+  color: rgba(255,255,255,0.1);
+  display: block; margin-top: 2px;
+  position: relative; z-index: 2;
+  opacity: 0;
+  transition: opacity 0.3s ease 0.1s;
+}
+.sw:hover .sw-meaning { opacity: 1; }
+.sw-s1 { background: #F2F0EA; }
+.sw-s1 .sw-name,.sw-s1 .sw-hex,.sw-s1 .sw-meaning { color: rgba(0,0,0,0.35) !important; }
+.sw-s2 { background: #BEC2CA; }
+.sw-s2 .sw-name,.sw-s2 .sw-hex,.sw-s2 .sw-meaning { color: rgba(0,0,0,0.28) !important; }
+.sw-s3 { background: #7E8188; }
+.sw-s4 { background: #42444A; }
+.sw-s5 { background: #1E2024; }
+.sw-red {
+  background: linear-gradient(160deg, var(--red-b), var(--red-a), var(--red));
+  flex: 1.6;
+}
+.sw-red .sw-name,.sw-red .sw-hex { color: rgba(255,255,255,0.7) !important; }
+.sw-red .sw-meaning { color: rgba(255,200,190,0.5) !important; }
+.sw-red::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(
+    45deg, rgba(0,0,0,0.06) 0px, rgba(0,0,0,0.06) 1px,
+    transparent 1px, transparent 8px
+  );
+}
+.pal-theory {
+  padding: 12px 14px;
+  border-top: 1px solid #1a1a1c;
+  flex-shrink: 0;
+}
+.pal-theory-label {
+  font-size: 6px; letter-spacing: 0.2em;
+  text-transform: uppercase; color: #2e2e32;
+  margin-bottom: 5px;
+}
+.pal-theory-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 9px; font-style: italic;
+  color: #383838; line-height: 1.5;
+}
+
+/* ─ SECTION HEADERS ─ */
+.sh-conformity { grid-column: 2; grid-row: 1; }
+.sh-signifier  { grid-column: 3; grid-row: 1; }
+.sh-breakdown  { grid-column: 4; grid-row: 1; }
+
+/* ─ CELL BASE ─ */
+.cell {
+  position: relative; overflow: hidden;
+  cursor: default;
+  transition: outline 0.2s ease;
+}
+.cell:hover { outline: 1px solid rgba(212,43,30,0.3); z-index: 5; }
+.cell-label {
+  position: absolute; top: 10px; left: 12px;
+  font-size: 6.5px; letter-spacing: 0.2em;
+  text-transform: uppercase; color: rgba(255,255,255,0.2);
+  z-index: 10; pointer-events: none;
+}
+.cell-label .accent { color: var(--red-a); }
+.cell-num {
+  position: absolute; bottom: 10px; right: 12px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 52px; font-weight: 300;
+  color: rgba(255,255,255,0.03);
+  line-height: 1; z-index: 1; pointer-events: none;
+}
+
+/* S1 — FLUORESCENT TILES */
+.cell-tiles {
+  grid-column: 2; grid-row: 2;
+}
+.tiles-bg {
+  position: absolute; inset: 0;
+  background: #C8C8C4;
+}
+.tile-grid {
+  position: absolute; inset: 0;
+  display: grid;
+  grid-template-columns: repeat(9,1fr);
+  grid-template-rows: repeat(6,1fr);
+  gap: 2.5px; background: #888886; padding: 2.5px;
+}
+.tile {
+  background: linear-gradient(140deg,#EAEAE6,#D0D0CC,#C4C4C0);
+  position: relative;
+}
+.tile::after {
+  content:''; position:absolute; inset:0;
+  background: linear-gradient(135deg,rgba(255,255,255,0.45) 0%,transparent 55%);
+}
+.fluoro {
+  position: absolute; top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 55%; height: 5px;
+  background: rgba(255,255,255,0.96);
+  box-shadow: 0 0 35px 18px rgba(230,242,255,0.75), 0 0 6px 2px rgba(200,225,255,0.9);
+  z-index: 5;
+}
+.fluoro-wash {
+  position: absolute; top:0; left:0; right:0; height:60%;
+  background: linear-gradient(to bottom, rgba(215,232,255,0.5) 0%, transparent 100%);
+  z-index: 4;
+}
+.floor-dark {
+  position: absolute; bottom:0; left:0; right:0; height:35%;
+  background: linear-gradient(to top, rgba(0,0,0,0.22) 0%, transparent 100%);
+  z-index: 4;
+}
+.exposure-text {
+  position: absolute; bottom: 14px; left: 14px;
+  font-size: 6.5px; letter-spacing: 0.18em;
+  color: rgba(255,255,255,0.22); text-transform: uppercase; z-index: 10;
+}
+
+/* S1 — CHROME TAP */
+.cell-chrome {
+  grid-column: 2; grid-row: 3;
+}
+.chrome-bg {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 60% 40%, #1e2028, #0c0c0e);
+  display: flex; align-items: center; justify-content: center;
+}
+.tap-assembly {
+  position: relative; width: 75%; height: 80%;
+}
+.mirror-rect {
+  position: absolute; top: 4%; left: 8%; width: 84%; height: 54%;
+  border: 2px solid #4a4b50;
+  background: linear-gradient(145deg,rgba(120,130,145,0.18) 0%,rgba(60,65,80,0.1) 100%);
+  box-shadow: inset 0 0 25px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,255,255,0.05);
+}
+.mirror-glare {
+  position: absolute; top: 8%; right: 8%; width: 38%; height: 42%;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 55%);
+}
+.mirror-ghost {
+  position: absolute; inset: 14%;
+  display: flex; align-items: center; justify-content: center;
+}
+.ghost-figure {
+  width: 22%; height: 72%;
+  background: linear-gradient(180deg, rgba(180,185,200,0.2) 0%, rgba(100,105,120,0.08) 100%);
+  border-radius: 50% 50% 0 0;
+  position: relative;
+}
+.ghost-tie {
+  position: absolute; bottom: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 22%; height: 42%;
+  background: rgba(190,35,25,0.65);
+  clip-path: polygon(38% 0%,62% 0%,75% 100%,25% 100%);
+}
+.faucet-base {
+  position: absolute; bottom: 10%; left: 50%;
+  transform: translateX(-50%);
+  width: 16%; height: 28%;
+  background: linear-gradient(150deg,#DDDEE2,#9A9BA2,#C8C9CE,#7A7B82);
+  border-radius: 2px 2px 5px 5px;
+  box-shadow: inset 0 2px 5px rgba(255,255,255,0.6), 0 5px 22px rgba(0,0,0,0.65);
+}
+.faucet-neck {
+  position: absolute; bottom: 36%; left: 50%;
+  transform: translateX(-50%);
+  width: 6%; height: 20%;
+  background: linear-gradient(90deg,#8A8B92,#DCDDE0,#8A8B92);
+  border-radius: 20px 20px 0 0;
+}
+.faucet-spout {
+  position: absolute; bottom: 54%; left: 50%;
+  transform: translateX(-60%) rotate(-18deg);
+  width: 24%; height: 4.5%;
+  background: linear-gradient(180deg,#D5D6DA,#8A8B92);
+  border-radius: 10px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.5);
+}
+.chrome-vignette {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% 50%, transparent 45%, rgba(0,0,0,0.7) 100%);
+}
+
+/* S1 — TEXT / THEORY PANEL */
+.cell-theory {
+  grid-column: 2; grid-row: 4;
+}
+.theory-bg {
+  position: absolute; inset: 0;
+  background: var(--white);
+  display: flex; flex-direction: column;
+  justify-content: center; padding: 22px 24px;
+}
+.theory-bg::before {
+  content:''; position: absolute; inset: 0;
+  background: repeating-linear-gradient(
+    0deg, transparent, transparent 24px,
+    rgba(0,0,0,0.04) 24px, rgba(0,0,0,0.04) 25px
+  );
+}
+.theory-bg::after {
+  content:''; position: absolute; inset: 0;
+  background: repeating-linear-gradient(
+    90deg, transparent, transparent 24px,
+    rgba(0,0,0,0.03) 24px, rgba(0,0,0,0.03) 25px
+  );
+}
+.th-word {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px; font-weight: 300; line-height: 1.05;
+  color: #1A1A1E; letter-spacing: 0.04em;
+  position: relative; z-index: 2;
+}
+.th-sub {
+  font-size: 6.5px; letter-spacing: 0.22em;
+  color: #AAAAAA; text-transform: uppercase;
+  margin-top: 8px; position: relative; z-index: 2;
+}
+.th-cite {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 10px; font-style: italic;
+  color: #CCCCCC; margin-top: 4px;
+  position: relative; z-index: 2;
+}
+
+/* S2 — SILK MACRO */
+.cell-silk {
+  grid-column: 3; grid-row: 2 / 4;
+}
+.silk-bg {
+  position: absolute; inset: 0;
+  background: #160e0e;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.silk-weave {
+  position: absolute; inset: -15%;
+  background-color: #C52218;
+  background-image:
+    repeating-linear-gradient(45deg, rgba(0,0,0,0.16) 0px,rgba(0,0,0,0.16) 1px, transparent 1px, transparent 8px),
+    repeating-linear-gradient(-45deg, rgba(255,255,255,0.06) 0px,rgba(255,255,255,0.06) 1px, transparent 1px, transparent 8px),
+    repeating-linear-gradient(0deg, rgba(0,0,0,0.07) 0px,rgba(0,0,0,0.07) 1px, transparent 1px, transparent 4px);
+  transform: rotate(-6deg) scale(1.5);
+}
+.silk-depth {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 55% 70% at 48% 52%, transparent 15%, rgba(0,0,0,0.6) 100%);
+}
+.silk-sheen {
+  position: absolute; top:12%; left:18%; width:28%; height:65%;
+  background: linear-gradient(130deg, rgba(255,195,175,0.22) 0%, transparent 55%);
+  transform: rotate(-6deg);
+  animation: sheenPulse 7s ease-in-out infinite;
+}
+@keyframes sheenPulse {
+  0%,100% { opacity:0.6; transform:rotate(-6deg) translateX(0); }
+  50% { opacity:1; transform:rotate(-6deg) translateX(10px); }
+}
+.silk-tag {
+  position: absolute; bottom:16px; left:16px; z-index:10;
+}
+.silk-tag span {
+  display: block; font-size: 6.5px; letter-spacing:0.22em;
+  color: rgba(255,255,255,0.22); text-transform:uppercase;
+}
+.silk-tag em {
+  font-family:'Cormorant Garamond',serif; font-style:italic;
+  font-size:11px; color:rgba(255,180,160,0.45); margin-top:2px;
+}
+.silk-cross {
+  position: absolute; top:50%; left:50%;
+  transform: translate(-50%,-50%);
+  width:20px; height:20px; opacity:0.15;
+}
+.silk-cross::before {
+  content:''; position:absolute; top:50%; left:0; right:0;
+  height:1px; background:white;
+}
+.silk-cross::after {
+  content:''; position:absolute; left:50%; top:0; bottom:0;
+  width:1px; background:white;
+}
+
+/* S2 — KNOT */
+.cell-knot {
+  grid-column: 3; grid-row: 4;
+}
+.knot-bg {
+  position: absolute; inset: 0;
+  background: #E8E6E0;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.shirt-weave {
+  position: absolute; inset: 0;
+  background: #E4E2DC;
+  background-image:
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.45) 0px,rgba(255,255,255,0.45) 1px, transparent 1px, transparent 16px),
+    repeating-linear-gradient(0deg, rgba(0,0,0,0.025) 0px,rgba(0,0,0,0.025) 1px, transparent 1px, transparent 16px);
+}
+.collar-l {
+  position: absolute; top:0; left:-8%; width:52%; height:100%;
+  background: linear-gradient(155deg, #F2F0EA, #D5D3CD);
+  clip-path: polygon(0 0,88% 0,65% 100%,0 100%);
+  box-shadow: 5px 0 20px rgba(0,0,0,0.14);
+}
+.collar-r {
+  position: absolute; top:0; right:-8%; width:52%; height:100%;
+  background: linear-gradient(205deg, #EAE8E2, #CCCAC4);
+  clip-path: polygon(12% 0,100% 0,100% 100%,35% 100%);
+}
+.knot-group {
+  position: relative; z-index:10;
+  display: flex; flex-direction:column; align-items:center;
+}
+.knot-body {
+  width: 58px; height: 48px;
+  background: linear-gradient(155deg, var(--red-b), var(--red-a), var(--red));
+  clip-path: polygon(14% 0%,86% 0%,100% 38%,86% 100%,14% 100%,0% 38%);
+  box-shadow: inset 0 3px 9px rgba(255,255,255,0.18), 3px 7px 24px rgba(120,10,5,0.55);
+  position: relative;
+}
+.knot-body::before {
+  content:''; position:absolute; inset:0;
+  background-image: repeating-linear-gradient(
+    45deg, rgba(0,0,0,0.1) 0px,rgba(0,0,0,0.1) 1px,
+    transparent 1px, transparent 5px
+  );
+  clip-path: polygon(14% 0%,86% 0%,100% 38%,86% 100%,14% 100%,0% 38%);
+}
+.knot-body::after {
+  content:''; position:absolute; top:14%; left:18%; width:22%; height:28%;
+  background: rgba(255,220,210,0.18); border-radius:50%;
+}
+.blade {
+  width: 36px; height: 130px;
+  background: linear-gradient(180deg, var(--red-a) 0%, var(--red) 45%, #5E1010 100%);
+  clip-path: polygon(10% 0%,90% 0%,100% 72%,50% 100%,0% 72%);
+  margin-top: -2px;
+  box-shadow: 3px 10px 28px rgba(100,10,5,0.5);
+  position: relative;
+}
+.blade::before {
+  content:''; position:absolute; top:0; left:14%;
+  width:18%; height:100%;
+  background: linear-gradient(180deg,rgba(255,180,160,0.14) 0%,transparent 65%);
+}
+.knot-note {
+  position: absolute; right:14px; top:12px;
+  text-align:right; z-index:10;
+}
+.knot-note strong {
+  font-family:'Cormorant Garamond',serif;
+  font-size:11px; font-style:italic; font-weight:400;
+  color:var(--red-a); letter-spacing:0.07em; display:block;
+}
+.knot-note span {
+  font-size:6px; letter-spacing:0.16em;
+  color:#9A9A98; text-transform:uppercase;
+  display:block; margin-top:3px; line-height:1.8;
+}
+
+/* S3 — CRACKED MIRROR */
+.cell-mirror {
+  grid-column: 4; grid-row: 2;
+}
+.mirror-bg {
+  position: absolute; inset: 0;
+  background: #0A0B0E;
+}
+.m-surface {
+  position: absolute; inset: 9%;
+  background: linear-gradient(140deg, #282B35, #181B22, #20232C);
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.05);
+}
+.m-crack {
+  position: absolute;
+  background: rgba(255,255,255,0.5);
+  transform-origin: 0 0;
+  box-shadow: 0 0 4px rgba(255,255,255,0.18);
+}
+.c1{width:1px;height:65px;top:22%;left:48%;transform:rotate(-28deg);}
+.c2{width:1px;height:48px;top:32%;left:50%;transform:rotate(18deg);}
+.c3{width:1px;height:38px;top:42%;left:45%;transform:rotate(-55deg);}
+.c4{width:1px;height:52px;top:28%;left:49%;transform:rotate(62deg);}
+.c5{width:1px;height:26px;top:24%;left:53%;transform:rotate(-12deg);}
+.c6{width:1px;height:40px;top:46%;left:43%;transform:rotate(38deg);}
+.c7{width:1px;height:20px;top:20%;left:46%;transform:rotate(78deg);}
+.m-glow {
+  position: absolute; top:15%;left:35%;
+  width:35%;height:48%;
+  background: radial-gradient(ellipse, rgba(255,255,255,0.04) 0%, transparent 70%);
+}
+.m-figure {
+  position: absolute; top:18%;left:20%;
+  width:60%;height:70%;
+  background: linear-gradient(180deg,rgba(150,158,172,0.1) 0%,rgba(70,78,95,0.04) 100%);
+  border-radius:50% 50% 40% 40%;
+}
+.m-vignette {
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 50%,transparent 28%,rgba(0,0,0,0.75) 100%);
+}
+.m-label {
+  position:absolute;bottom:12px;left:12px;z-index:10;
+}
+.m-label span {
+  display:block;font-size:6.5px;letter-spacing:0.2em;
+  color:rgba(255,255,255,0.18);text-transform:uppercase;
+}
+.m-label em {
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:9.5px;color:rgba(255,200,190,0.3);
+}
+
+/* S3 — WATER / DROPS */
+.cell-drops {
+  grid-column: 4; grid-row: 3;
+}
+.drops-bg {
+  position: absolute; inset: 0;
+  background: #141618;
+}
+.skin-layer {
+  position:absolute;inset:0;
+  background:linear-gradient(155deg,#3A2E28,#28201A,#1C1410);
+}
+.drop {
+  position:absolute;border-radius:50% 50% 50% 30%;
+  background:radial-gradient(circle at 32% 32%,rgba(255,255,255,0.88) 0%,rgba(195,212,228,0.6) 38%,rgba(150,175,205,0.22) 100%);
+  box-shadow:inset -1px -2px 5px rgba(0,0,0,0.25),0 2px 10px rgba(0,0,0,0.4);
+  transform:rotate(-22deg);
+}
+.dp1{width:24px;height:31px;top:20%;left:28%;}
+.dp2{width:13px;height:17px;top:14%;left:60%;transform:rotate(14deg);}
+.dp3{width:33px;height:42px;top:47%;left:44%;transform:rotate(-38deg);animation:dPulse 4.5s ease-in-out infinite;}
+.dp4{width:9px;height:12px;top:34%;left:18%;transform:rotate(6deg);}
+.dp5{width:20px;height:26px;top:63%;left:22%;transform:rotate(-12deg);}
+.dp6{width:7px;height:9px;top:56%;left:70%;transform:rotate(28deg);}
+.dp7{width:26px;height:33px;top:28%;left:70%;transform:rotate(-26deg);animation:dPulse 5s ease-in-out infinite 1s;}
+.dp8{width:11px;height:14px;top:72%;left:55%;transform:rotate(10deg);}
+@keyframes dPulse{0%,100%{opacity:.9;transform:rotate(-38deg) scale(1);}50%{opacity:.65;transform:rotate(-38deg) scale(.96);}}
+.streak{position:absolute;width:1px;border-radius:10px;
+  background:linear-gradient(180deg,rgba(195,212,228,0.35) 0%,transparent 100%);}
+.str1{height:44px;top:26%;left:29.8%;}
+.str2{height:58px;top:42%;left:46%;}
+.str3{height:32px;top:18%;left:61%;}
+.drops-vignette{position:absolute;inset:0;
+  background:radial-gradient(ellipse at 48% 38%,transparent 36%,rgba(0,0,0,0.65) 100%);}
+
+/* S3 — CHIAROSCURO */
+.cell-chia {
+  grid-column: 4; grid-row: 4;
+}
+.chia-bg {
+  position:absolute;inset:0;background:#040404;
+}
+.chia-shirt {
+  position:absolute;top:0;left:8%;width:52%;height:100%;
+  background:linear-gradient(158deg,#ECEAE4,#D0CEC8,transparent 78%);
+  clip-path:polygon(0 0,100% 0,68% 100%,0 100%);
+}
+.chia-shirt-lines {
+  position:absolute;top:0;left:8%;width:52%;height:100%;
+  background-image:repeating-linear-gradient(
+    90deg,rgba(255,255,255,0.28) 0px,rgba(255,255,255,0.28) 1px,
+    transparent 1px,transparent 13px
+  );
+  clip-path:polygon(0 0,100% 0,68% 100%,0 100%);
+}
+.chia-tie {
+  position:absolute;top:0;left:28%;width:14%;height:62%;
+  background:linear-gradient(180deg,var(--red-a) 0%,var(--red) 55%,transparent 100%);
+  clip-path:polygon(28% 0%,72% 0%,88% 82%,50% 100%,12% 82%);
+  box-shadow:0 0 28px rgba(180,30,20,0.45);
+  animation:tiePulse 6s ease-in-out infinite;
+}
+@keyframes tiePulse{0%,100%{box-shadow:0 0 28px rgba(180,30,20,0.45);}50%{box-shadow:0 0 45px rgba(210,43,30,0.65);}}
+.chia-shadow {
+  position:absolute;top:0;right:0;width:62%;height:100%;
+  background:linear-gradient(158deg,transparent 0%,rgba(0,0,0,0.88) 48%,#000 100%);
+}
+.chia-label {
+  position:absolute;bottom:14px;right:14px;text-align:right;z-index:10;
+}
+.chia-label span {
+  display:block;font-size:6.5px;letter-spacing:0.2em;
+  color:rgba(255,255,255,0.15);text-transform:uppercase;
+}
+.chia-label em {
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:10px;color:rgba(255,195,185,0.3);
+}
+
+/* ─ BOTTOM BAR ─ */
+.bottom-bar {
+  grid-column:1/5;grid-row:5;
+  background:#080809;
+  border-top:1px solid #1a1a1c;
+  display:flex;align-items:center;
+  padding:0 16px;gap:0;
+}
+.bb-block {
+  flex:1;padding:0 16px;
+  border-right:1px solid #1a1a1c;
+  display:flex;flex-direction:column;gap:3px;
+}
+.bb-block:first-child{border-left:none;padding-left:4px;}
+.bb-block:last-child{border-right:none;}
+.bb-label {
+  font-size:6px;letter-spacing:0.22em;
+  text-transform:uppercase;color:var(--grey-m);
+}
+.bb-label .dot{color:var(--red-a);margin-right:4px;}
+.bb-val {
+  font-family:'Cormorant Garamond',serif;
+  font-size:11.5px;font-weight:300;letter-spacing:0.05em;
+  color:var(--grey-l);
+}
+.bb-val.red{color:var(--red-a);}
+.chips{display:flex;gap:3px;align-items:center;padding-top:1px;}
+.chip{width:13px;height:13px;border-radius:50%;}
+
+/* ════════════════════════════════════════════
+   PANEL 2: SUIT / COSTUME BREAKDOWN
+════════════════════════════════════════════ */
+.suit-panel {
+  width:1440px; min-height:852px;
+  background:var(--grey-d);
+  display:grid;
+  grid-template-columns:380px 1fr;
+  grid-template-rows:56px 1fr;
+  gap:2px;
+  background-color:#141416;
+}
+
+.suit-panel-header {
+  grid-column:1/3;grid-row:1;
+  background:var(--black);
+  border-bottom:1px solid #1c1c1e;
+  display:flex;align-items:center;
+  padding:0 28px;gap:20px;
+}
+.sph-title {
+  font-family:'Cormorant Garamond',serif;
+  font-size:18px;font-weight:300;font-style:italic;
+  letter-spacing:0.1em;color:var(--white);
+}
+.sph-sub {
+  font-size:7px;letter-spacing:0.22em;
+  text-transform:uppercase;color:var(--grey-m);
+}
+.sph-tag {
+  margin-left:auto;font-size:7px;letter-spacing:0.16em;
+  text-transform:uppercase;color:var(--red-a);
+  border:1px solid var(--red);padding:4px 10px;
+}
+
+/* Suit Figure */
+.suit-figure-col {
+  grid-column:1;grid-row:2;
+  background:#0E0F12;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+}
+.suit-figure-col::before {
+  content:'';position:absolute;inset:0;
+  background:
+    linear-gradient(90deg,rgba(255,255,255,0.02) 1px,transparent 1px),
+    linear-gradient(0deg,rgba(255,255,255,0.02) 1px,transparent 1px);
+  background-size:40px 40px;
+}
+.figure-svg-wrap {
+  position:relative;z-index:5;
+  width:260px;height:620px;
+}
+/* CSS-drawn suit figure */
+.suit-head {
+  position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:70px;height:85px;
+  background:linear-gradient(180deg,#C8B8A8,#B0A090);
+  border-radius:50% 50% 45% 45%;
+  box-shadow:0 4px 20px rgba(0,0,0,0.4);
+}
+.suit-neck {
+  position:absolute;top:78px;left:50%;transform:translateX(-50%);
+  width:26px;height:28px;
+  background:linear-gradient(180deg,#B8A898,#A09080);
+}
+.suit-collar-l {
+  position:absolute;top:90px;left:calc(50% - 40px);
+  width:48px;height:55px;
+  background:linear-gradient(145deg,#2C2E34,#222428);
+  clip-path:polygon(0 0,100% 0,60% 100%,0 85%);
+  box-shadow:inset -2px 0 8px rgba(0,0,0,0.4);
+}
+.suit-collar-r {
+  position:absolute;top:90px;left:calc(50% - 8px);
+  width:48px;height:55px;
+  background:linear-gradient(215deg,#24262C,#1C1E24);
+  clip-path:polygon(0 0,100% 0,100% 85%,40% 100%);
+}
+.suit-shirt-front {
+  position:absolute;top:100px;left:50%;transform:translateX(-50%);
+  width:40px;height:200px;
+  background:linear-gradient(180deg,#ECEAE4,#DEDAD4);
+  background-image:repeating-linear-gradient(
+    90deg,rgba(255,255,255,0.4) 0px,rgba(255,255,255,0.4) 1px,
+    transparent 1px,transparent 10px
+  );
+}
+/* THE RED TIE on figure */
+.suit-tie {
+  position:absolute;top:105px;left:50%;transform:translateX(-50%);
+  width:18px;
+  z-index:10;
+  display:flex;flex-direction:column;align-items:center;
+}
+.suit-tie-knot {
+  width:22px;height:18px;
+  background:linear-gradient(155deg,var(--red-b),var(--red-a),var(--red));
+  clip-path:polygon(15% 0%,85% 0%,100% 38%,85% 100%,15% 100%,0% 38%);
+  box-shadow:0 2px 12px rgba(180,30,20,0.6);
+}
+.suit-tie-blade {
+  width:14px;height:90px;
+  background:linear-gradient(180deg,var(--red-a),var(--red),#5E1010);
+  clip-path:polygon(12% 0%,88% 0%,100% 75%,50% 100%,0% 75%);
+  margin-top:-1px;
+  box-shadow:0 4px 18px rgba(150,20,10,0.5);
+}
+.suit-jacket {
+  position:absolute;top:130px;left:50%;transform:translateX(-50%);
+  width:190px;height:280px;
+}
+.jacket-l {
+  position:absolute;top:0;left:0;width:60%;height:100%;
+  background:linear-gradient(150deg,#32343C,#242630,#1C1E26);
+  clip-path:polygon(15% 0%,100% 0%,85% 100%,0% 100%);
+  box-shadow:inset -4px 0 15px rgba(0,0,0,0.5);
+}
+.jacket-r {
+  position:absolute;top:0;right:0;width:60%;height:100%;
+  background:linear-gradient(210deg,#2A2C34,#1E2028,#161820);
+  clip-path:polygon(0% 0%,85% 0%,100% 100%,15% 100%);
+}
+.jacket-lapel-l {
+  position:absolute;top:0;left:20%;width:30%;height:45%;
+  background:linear-gradient(145deg,#3C3E48,#2A2C36);
+  clip-path:polygon(0 0,100% 0,70% 100%,0 80%);
+  box-shadow:inset -1px 0 6px rgba(255,255,255,0.04);
+}
+.jacket-lapel-r {
+  position:absolute;top:0;right:20%;width:30%;height:45%;
+  background:linear-gradient(215deg,#38404A,#262830);
+  clip-path:polygon(0 0,100% 0,100% 80%,30% 100%);
+}
+/* Pocket square hint */
+.pocket-sq {
+  position:absolute;top:28%;left:12%;width:8%;height:5%;
+  background:linear-gradient(135deg,#E8E4DC,#D0CCC4);
+  clip-path:polygon(0 40%,50% 0%,100% 40%,100% 100%,0 100%);
+  opacity:0.5;
+}
+.suit-trouser-l {
+  position:absolute;top:395px;left:calc(50% - 50px);
+  width:44px;height:200px;
+  background:linear-gradient(180deg,#28292E,#1E1F24,#18191E);
+  border-radius:0 0 4px 4px;
+}
+.suit-trouser-r {
+  position:absolute;top:395px;left:calc(50% + 6px);
+  width:44px;height:200px;
+  background:linear-gradient(180deg,#222328,#1A1B20,#14151A);
+  border-radius:0 0 4px 4px;
+}
+.suit-shoe-l {
+  position:absolute;top:580px;left:calc(50% - 54px);
+  width:48px;height:22px;
+  background:linear-gradient(160deg,#1A1A1C,#0E0E10);
+  border-radius:4px 14px 4px 4px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.6);
+}
+.suit-shoe-r {
+  position:absolute;top:580px;left:calc(50% + 6px);
+  width:48px;height:22px;
+  background:linear-gradient(160deg,#181818,#0C0C0E);
+  border-radius:14px 4px 4px 4px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.6);
+}
+/* Annotation lines */
+.ann-line {
+  position:absolute;height:1px;background:rgba(255,255,255,0.08);
+  z-index:20;
+}
+.ann-dot {
+  position:absolute;width:5px;height:5px;border-radius:50%;
+  background:var(--red-a);box-shadow:0 0 6px var(--red-a);z-index:21;
+  transform:translate(-50%,-50%);
+}
+.ann-text {
+  position:absolute;z-index:22;
+}
+.ann-text span {
+  display:block;font-size:6px;letter-spacing:0.18em;
+  text-transform:uppercase;color:rgba(255,255,255,0.25);
+  white-space:nowrap;
+}
+.ann-text strong {
+  display:block;font-family:'Cormorant Garamond',serif;
+  font-size:9.5px;font-weight:300;font-style:italic;
+  color:rgba(255,255,255,0.45);margin-top:1px;
+}
+
+/* Suit detail grid */
+.suit-details-col {
+  grid-column:2;grid-row:2;
+  background:#111214;
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  grid-template-rows:1fr 1fr 56px;
+  gap:2px;
+}
+.detail-cell {
+  background:#0D0E10;
+  position:relative;overflow:hidden;
+  padding:20px 22px;
+  display:flex;flex-direction:column;justify-content:flex-end;
+}
+.detail-cell:hover{outline:1px solid rgba(212,43,30,0.25);}
+.dc-num {
+  font-family:'Cormorant Garamond',serif;
+  font-size:64px;font-weight:300;
+  color:rgba(255,255,255,0.03);
+  position:absolute;top:8px;right:12px;line-height:1;
+}
+.dc-label {
+  font-size:6.5px;letter-spacing:0.22em;
+  text-transform:uppercase;color:var(--red-a);
+  margin-bottom:6px;
+}
+.dc-title {
+  font-family:'Cormorant Garamond',serif;
+  font-size:20px;font-weight:300;letter-spacing:0.05em;
+  color:var(--white);line-height:1.1;margin-bottom:8px;
+}
+.dc-body {
+  font-size:7.5px;letter-spacing:0.06em;
+  color:var(--grey-l);line-height:1.75;
+}
+.dc-cite {
+  font-family:'Cormorant Garamond',serif;
+  font-size:9px;font-style:italic;
+  color:#383838;margin-top:8px;
+}
+
+/* Suit visual elements */
+.dc-collar-visual {
+  position:absolute;top:16px;right:16px;
+  width:55px;height:45px;overflow:hidden;
+}
+.dcv-collar-l {
+  position:absolute;top:0;left:0;width:55%;height:100%;
+  background:linear-gradient(145deg,#E8E6E0,#D0CEC8);
+  clip-path:polygon(0 0,100% 0,55% 100%,0 80%);
+}
+.dcv-collar-r {
+  position:absolute;top:0;right:0;width:55%;height:100%;
+  background:linear-gradient(215deg,#DEDAD4,#C8C6C0);
+  clip-path:polygon(0 0,100% 0,100% 80%,45% 100%);
+}
+.dcv-btn {
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:5px;height:5px;background:#C8C6BE;border-radius:50%;
+  box-shadow:0 2px 0 rgba(0,0,0,0.1);
+}
+
+.dc-tie-visual {
+  position:absolute;top:12px;right:14px;
+  display:flex;flex-direction:column;align-items:center;
+}
+.dcv-knot {
+  width:22px;height:19px;
+  background:linear-gradient(155deg,var(--red-b),var(--red-a),var(--red));
+  clip-path:polygon(15% 0%,85% 0%,100% 38%,85% 100%,15% 100%,0% 38%);
+  box-shadow:0 2px 10px rgba(180,30,20,0.5);
+}
+.dcv-blade {
+  width:13px;height:40px;
+  background:linear-gradient(180deg,var(--red-a),var(--red));
+  clip-path:polygon(12% 0%,88% 0%,100% 75%,50% 100%,0% 75%);
+  margin-top:-1px;
+}
+
+.dc-fabric-visual {
+  position:absolute;top:0;right:0;width:90px;height:90px;overflow:hidden;
+  opacity:0.5;
+}
+.dcfv-weave {
+  position:absolute;inset:-20%;
+  background-color:#2A2C34;
+  background-image:
+    repeating-linear-gradient(45deg,rgba(255,255,255,0.04) 0px,rgba(255,255,255,0.04) 1px,transparent 1px,transparent 7px),
+    repeating-linear-gradient(-45deg,rgba(255,255,255,0.02) 0px,rgba(255,255,255,0.02) 1px,transparent 1px,transparent 7px);
+  transform:rotate(-8deg);
+}
+
+.dc-shoe-visual {
+  position:absolute;top:16px;right:16px;
+  width:60px;height:25px;
+  background:linear-gradient(155deg,#1E1E22,#0E0E12);
+  border-radius:4px 18px 4px 4px;
+  box-shadow:0 4px 14px rgba(0,0,0,0.6);
+}
+.dc-shoe-visual::after {
+  content:'';position:absolute;top:4px;left:10px;right:6px;height:1px;
+  background:rgba(255,255,255,0.06);
+}
+
+.suit-bottom-bar {
+  grid-column:1/4;grid-row:3;
+  background:#080809;
+  border-top:1px solid #1a1a1c;
+  display:flex;align-items:center;
+  padding:0 20px;gap:0;
+}
+
+/* ════════════════════════════════════════════
+   PANEL 3: CHARACTER PSYCHOLOGY
+════════════════════════════════════════════ */
+.psych-panel {
+  width:1440px;min-height:852px;
+  background:#141416;
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  grid-template-rows:56px 1fr 1fr 72px;
+  gap:2px;
+}
+.psych-header {
+  grid-column:1/4;grid-row:1;
+  background:var(--black);
+  border-bottom:1px solid #1c1c1e;
+  display:flex;align-items:center;
+  padding:0 28px;gap:20px;
+}
+.psych-cell {
+  background:#0D0E10;
+  position:relative;overflow:hidden;
+  padding:28px 28px 22px;
+  display:flex;flex-direction:column;
+}
+.psych-cell:hover{outline:1px solid rgba(212,43,30,0.22);z-index:5;}
+.pc-tag {
+  font-size:6.5px;letter-spacing:0.24em;
+  text-transform:uppercase;color:var(--red-a);
+  margin-bottom:10px;
+}
+.pc-heading {
+  font-family:'Cormorant Garamond',serif;
+  font-size:26px;font-weight:300;font-style:italic;
+  letter-spacing:0.04em;color:var(--white);
+  line-height:1.1;margin-bottom:12px;
+}
+.pc-body {
+  font-size:8px;letter-spacing:0.05em;
+  color:var(--grey-l);line-height:1.85;
+  flex:1;
+}
+.pc-cite {
+  font-family:'Cormorant Garamond',serif;
+  font-size:10px;font-style:italic;
+  color:#2e2e32;margin-top:14px;
+  border-top:1px solid #1a1a1c;
+  padding-top:10px;
+}
+.pc-bg-num {
+  position:absolute;bottom:16px;right:18px;
+  font-family:'Cormorant Garamond',serif;
+  font-size:120px;font-weight:300;
+  color:rgba(255,255,255,0.02);
+  line-height:1;pointer-events:none;
+}
+.arc-bar {
+  grid-column:1/4;grid-row:4;
+  background:#080809;
+  border-top:1px solid #1a1a1c;
+  display:flex;align-items:center;
+  padding:0 28px;gap:0;
+  overflow:hidden;
+}
+.arc-step {
+  flex:1;padding:0 20px;
+  border-right:1px solid #1a1a1c;
+  display:flex;align-items:center;gap:12px;
+}
+.arc-step:last-child{border-right:none;}
+.arc-n {
+  font-family:'Cormorant Garamond',serif;
+  font-size:22px;font-weight:300;
+  color:rgba(255,255,255,0.06);flex-shrink:0;
+}
+.arc-info{}
+.arc-label {
+  font-size:6px;letter-spacing:0.22em;
+  text-transform:uppercase;color:var(--grey-m);
+}
+.arc-val {
+  font-family:'Cormorant Garamond',serif;
+  font-size:11px;font-weight:300;
+  color:var(--grey-l);margin-top:2px;
+}
+.arc-arrow {
+  color:var(--red);font-size:10px;
+  flex-shrink:0;margin:0 4px;
+}
+
+/* ════════════════════════════════════════════
+   PANEL 4: VISUAL ARC
+════════════════════════════════════════════ */
+.arc-panel {
+  width:1440px;min-height:852px;
+  background:#141416;
+}
+.arc-panel-inner {
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  grid-template-rows:56px 1fr 200px 72px;
+  gap:2px;
+  background:#141416;
+}
+.arc-panel-header {
+  grid-column:1/6;grid-row:1;
+  background:var(--black);
+  border-bottom:1px solid #1c1c1e;
+  display:flex;align-items:center;
+  padding:0 28px;gap:20px;
+}
+.arc-frame {
+  position:relative;overflow:hidden;
+  background:#0D0E10;
+}
+.arc-frame:hover{outline:1px solid rgba(212,43,30,0.3);z-index:5;}
+
+/* Scene backgrounds */
+.scene-bg-1{background:linear-gradient(160deg,#D8D8D4,#C0C0BC);}/* ultra bright clinical */
+.scene-bg-2{background:linear-gradient(160deg,#B0B0AC,#909090);}/* slightly dimmer */
+.scene-bg-3{background:linear-gradient(160deg,#505055,#383840);}/* dim + ominous */
+.scene-bg-4{background:linear-gradient(160deg,#282830,#18181E);}/* dark */
+.scene-bg-5{background:linear-gradient(160deg,#0C0C10,#040408);}/* near black */
+
+.scene-frame {
+  position:absolute;inset:0;
+  display:flex;align-items:center;justify-content:center;
+}
+.frame-num {
+  position:absolute;top:12px;left:14px;
+  font-family:'Cormorant Garamond',serif;
+  font-size:11px;font-weight:300;
+  color:rgba(255,255,255,0.15);letter-spacing:0.1em;
+  z-index:10;
+}
+.frame-label {
+  position:absolute;bottom:14px;left:14px;z-index:10;
+}
+.frame-label span {
+  display:block;font-size:6.5px;letter-spacing:0.18em;
+  text-transform:uppercase;
+}
+.frame-label em {
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:10px;display:block;margin-top:2px;
+}
+.frame-red-bar {
+  position:absolute;bottom:0;left:0;right:0;height:2px;
+  background:var(--red-a);opacity:0;
+  transition:opacity 0.3s ease;
+}
+.arc-frame:hover .frame-red-bar{opacity:1;}
+
+/* Scene 1 — Fluorescent tiles */
+.s1-tiles{
+  position:absolute;inset:0;
+  display:grid;grid-template-columns:repeat(7,1fr);
+  grid-template-rows:repeat(5,1fr);
+  gap:2px;background:#8A8A88;padding:2px;
+}
+.s1-tile{background:linear-gradient(135deg,#E8E8E4,#D0D0CC);}
+.s1-light{
+  position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:50%;height:4px;
+  background:white;
+  box-shadow:0 0 30px 15px rgba(230,242,255,0.8);z-index:5;
+}
+
+/* Scene 2 — Medium shot figure */
+.s2-figure{
+  width:60px;height:160px;position:relative;
+}
+.s2-head{
+  position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:30px;height:38px;
+  background:linear-gradient(180deg,#C0B0A0,#A89888);
+  border-radius:50% 50% 45% 45%;
+}
+.s2-suit{
+  position:absolute;top:34px;left:50%;transform:translateX(-50%);
+  width:55px;height:100px;
+  background:linear-gradient(180deg,#2A2C32,#1C1E24);
+  border-radius:2px;
+}
+.s2-tie{
+  position:absolute;top:40px;left:50%;transform:translateX(-50%);
+  width:7px;height:50px;
+  background:linear-gradient(180deg,var(--red-a),var(--red));
+  clip-path:polygon(15% 0%,85% 0%,95% 75%,50% 100%,5% 75%);
+  z-index:5;
+  box-shadow:0 0 14px rgba(180,30,20,0.5);
+}
+
+/* Scene 3 — Macro red silk */
+.s3-silk{
+  position:absolute;inset:-20%;
+  background-color:#C02218;
+  background-image:
+    repeating-linear-gradient(45deg,rgba(0,0,0,0.15) 0px,rgba(0,0,0,0.15) 1px,transparent 1px,transparent 7px),
+    repeating-linear-gradient(-45deg,rgba(255,255,255,0.06) 0px,rgba(255,255,255,0.06) 1px,transparent 1px,transparent 7px);
+  transform:rotate(-8deg);
+}
+.s3-depth{
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse 60% 70% at 50% 50%,transparent 15%,rgba(0,0,0,0.6) 100%);
+}
+
+/* Scene 4 — Water splash */
+.s4-bg{
+  position:absolute;inset:0;
+  background:linear-gradient(160deg,#1E2028,#12141A);
+}
+.s4-drops{position:absolute;inset:0;}
+.s4-drop{
+  position:absolute;border-radius:50% 50% 50% 30%;
+  background:radial-gradient(circle at 32% 32%,rgba(255,255,255,0.85) 0%,rgba(180,200,225,0.5) 40%,rgba(120,150,185,0.18) 100%);
+  box-shadow:inset -1px -2px 4px rgba(0,0,0,0.2),0 2px 8px rgba(0,0,0,0.4);
+}
+.sd1{width:18px;height:23px;top:30%;left:25%;transform:rotate(-20deg);}
+.sd2{width:11px;height:14px;top:20%;left:55%;transform:rotate(12deg);}
+.sd3{width:24px;height:30px;top:52%;left:50%;transform:rotate(-32deg);}
+.sd4{width:8px;height:10px;top:40%;left:15%;transform:rotate(5deg);}
+.sd5{width:14px;height:18px;top:65%;left:35%;transform:rotate(-15deg);}
+.s4-vignette{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,transparent 35%,rgba(0,0,0,0.7) 100%);}
+
+/* Scene 5 — Chiaroscuro */
+.s5-shirt{
+  position:absolute;top:0;left:5%;width:55%;height:100%;
+  background:linear-gradient(155deg,#E8E6E0,#C0BEB8,transparent 75%);
+  clip-path:polygon(0 0,100% 0,65% 100%,0 100%);
+}
+.s5-tie{
+  position:absolute;top:0;left:24%;width:12%;height:60%;
+  background:linear-gradient(180deg,var(--red-a),var(--red),transparent 90%);
+  clip-path:polygon(28% 0%,72% 0%,88% 82%,50% 100%,12% 82%);
+  box-shadow:0 0 22px rgba(180,30,20,0.5);
+}
+.s5-shadow{
+  position:absolute;top:0;right:0;width:58%;height:100%;
+  background:linear-gradient(155deg,transparent,rgba(0,0,0,0.9) 50%,#000 100%);
+}
+
+/* Intensity gradient bar */
+.intensity-bar {
+  grid-column:1/6;grid-row:3;
+  background:#0C0D10;
+  border-top:2px solid #1a1a1c;
+  display:flex;flex-direction:column;
+  padding:18px 24px;gap:10px;
+}
+.ib-label {
+  font-size:7px;letter-spacing:0.22em;
+  text-transform:uppercase;color:var(--grey-m);
+}
+.ib-gradient {
+  flex:1;
+  background:linear-gradient(90deg,
+    #D8D8D4 0%,
+    #A0A0A0 20%,
+    #606065 40%,
+    #303038 60%,
+    #C02218 80%,
+    #8B1A1A 100%
+  );
+  border-radius:2px;
+  position:relative;
+}
+.ib-markers {
+  position:absolute;inset:0;
+  display:flex;align-items:flex-end;
+  padding:0 0 6px;
+}
+.ib-marker {
+  flex:1;text-align:center;
+  font-size:6px;letter-spacing:0.14em;
+  text-transform:uppercase;color:rgba(0,0,0,0.3);
+}
+.ib-marker.dark{color:rgba(255,255,255,0.3);}
+.ib-labels {
+  display:flex;justify-content:space-between;
+}
+.ib-end-label {
+  font-family:'Cormorant Garamond',serif;
+  font-size:10px;font-style:italic;
+  color:var(--grey-m);
+}
+.ib-end-label.red{color:var(--red-a);}
+
+.arc-bottom {
+  grid-column:1/6;grid-row:4;
+  background:#080809;
+  border-top:1px solid #1a1a1c;
+  display:flex;align-items:center;
+  padding:0 24px;gap:0;
+}
+
+/* ═══ SHARED UTILITIES ════════════════════ */
+.sep-line {
+  width:1px;background:#1a1a1c;align-self:stretch;
+  margin:0 4px;
+}
+.tag-pill {
+  font-size:6.5px;letter-spacing:0.16em;
+  text-transform:uppercase;
+  border:1px solid #2a2a2c;color:var(--grey-m);
+  padding:3px 8px;margin-left:6px;
+}
+.tag-pill.red{border-color:var(--red);color:var(--red-a);}
+
+@media(max-width:1500px){
+  .wrapper,
+  .board,
+  .suit-panel,
+  .psych-panel,
+  .arc-panel{
+    width:100vw;
+  }
+  .wrapper{
+    transform-origin:top left;
+  }
+}
+</style>
+</head>
+<body>
+<div class="wrapper" id="wrapper">
+
+<!-- ──── TOP NAV ──── -->
+<div class="topnav">
+  <div class="nav-brand"><strong>#</strong>RedTieAffair</div>
+  <div class="nav-tabs">
+    <button class="tab active" data-tab="moodboard">Moodboard</button>
+    <button class="tab" data-tab="costume">Costume Breakdown</button>
+    <button class="tab" data-tab="psychology">Character Psychology</button>
+    <button class="tab" data-tab="arc">Visual Arc</button>
+  </div>
+  <div class="nav-meta">Production Design · Research &amp; Planning · v2.0</div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PANEL 1: MOODBOARD
+══════════════════════════════════════════ -->
+<div class="panel active" id="tab-moodboard">
+<div class="board">
+
+  <!-- PALETTE -->
+  <div class="palette">
+    <div class="pal-header">
+      <div class="pal-title">Colour Palette</div>
+      <div class="pal-subtitle">Binary Opposition — Lévi-Strauss</div>
+    </div>
+    <div class="swatches">
+      <div class="sw sw-s1">
+        <div class="sw-name">Sterile White</div>
+        <span class="sw-hex">#F2F0EA</span>
+        <span class="sw-meaning">The Simulacrum of purity</span>
+      </div>
+      <div class="sw sw-s2">
+        <div class="sw-name">Clinical Chrome</div>
+        <span class="sw-hex">#BEC2CA</span>
+        <span class="sw-meaning">Cold metal — institutional control</span>
+      </div>
+      <div class="sw sw-s3">
+        <div class="sw-name">Cold Grey Lt</div>
+        <span class="sw-hex">#7E8188</span>
+        <span class="sw-meaning">Desaturated conformity</span>
+      </div>
+      <div class="sw sw-s4">
+        <div class="sw-name">Cold Grey Md</div>
+        <span class="sw-hex">#42444A</span>
+        <span class="sw-meaning">Shadow entering the frame</span>
+      </div>
+      <div class="sw sw-s5">
+        <div class="sw-name">Near Black</div>
+        <span class="sw-hex">#1E2024</span>
+        <span class="sw-meaning">The Chiaroscuro encroaches</span>
+      </div>
+      <div class="sw sw-red">
+        <div class="sw-name">Arterial Red</div>
+        <span class="sw-hex">#D42B1E</span>
+        <span class="sw-meaning">Danger · Pressure · Breaking Point</span>
+      </div>
+    </div>
+    <div class="pal-theory">
+      <div class="pal-theory-label">Theory</div>
+      <div class="pal-theory-text">"The only saturated colour in the film — the Red Tie is the sole disruptive signifier in a desaturated world."</div>
+    </div>
+  </div>
+
+  <!-- SECTION HEADERS -->
+  <div class="sec-head sh-conformity">
+    <div class="red-dot"></div>
+    <div class="sec-head-label">§ 01</div>
+    <div class="sec-head-title">Space of Conformity — The Bathroom</div>
+  </div>
+  <div class="sec-head sh-signifier">
+    <div class="red-dot"></div>
+    <div class="sec-head-label">§ 02</div>
+    <div class="sec-head-title">The Disruptive Signifier — Red Tie</div>
+  </div>
+  <div class="sec-head sh-breakdown">
+    <div class="red-dot"></div>
+    <div class="sec-head-label">§ 03</div>
+    <div class="sec-head-title">The Breakdown — Visceral Detail</div>
+  </div>
+
+  <!-- S1: TILES -->
+  <div class="cell cell-tiles" style="grid-column:2;grid-row:2;">
+    <div class="tiles-bg">
+      <div class="tile-grid">
+        <div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div>
+        <div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div>
+        <div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div>
+        <div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div>
+        <div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div>
+        <div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div>
+      </div>
+      <div class="fluoro"></div>
+      <div class="fluoro-wash"></div>
+      <div class="floor-dark"></div>
+    </div>
+    <div class="cell-label"><span class="accent">↳ </span>Fluorescent — overhead / exposed</div>
+    <div class="exposure-text">High-Key · Unforgiving · "Too Clean"</div>
+  </div>
+
+  <!-- S1: CHROME TAP -->
+  <div class="cell cell-chrome" style="grid-column:2;grid-row:3;">
+    <div class="chrome-bg">
+      <div class="tap-assembly">
+        <div class="mirror-rect">
+          <div class="mirror-glare"></div>
+          <div class="mirror-ghost">
+            <div class="ghost-figure">
+              <div class="ghost-tie"></div>
+            </div>
+          </div>
+        </div>
+        <div class="faucet-spout"></div>
+        <div class="faucet-neck"></div>
+        <div class="faucet-base"></div>
+      </div>
+      <div class="chrome-vignette"></div>
+    </div>
+    <div class="cell-label"><span class="accent">↳ </span>Chrome tap · distorted mirror</div>
+    <div class="cell-num">01</div>
+  </div>
+
+  <!-- S1: THEORY TEXT -->
+  <div class="cell cell-theory" style="grid-column:2;grid-row:4;">
+    <div class="theory-bg">
+      <div class="th-word">Simulacrum</div>
+      <div class="th-sub">The perfect life, performed for no audience</div>
+      <div class="th-cite">— Baudrillard, Simulacra and Simulation, 1981</div>
+      <div style="height:14px;"></div>
+      <div class="th-word" style="font-size:20px;color:#555;">Social Constriction</div>
+      <div class="th-sub">Collar buttoned to the top — no exit</div>
+      <div class="th-cite">— Debord, The Society of the Spectacle, 1967</div>
+    </div>
+  </div>
+
+  <!-- S2: SILK -->
+  <div class="cell cell-silk" style="grid-column:3;grid-row:2/4;">
+    <div class="silk-bg">
+      <div class="silk-weave"></div>
+      <div class="silk-depth"></div>
+      <div class="silk-sheen"></div>
+      <div class="silk-cross"></div>
+    </div>
+    <div class="cell-label"><span class="accent">↳ </span>Macro silk weave · f/2.8</div>
+    <div class="silk-tag">
+      <span>Silk Twill — ECU</span>
+      <em>"arterial red"</em>
+    </div>
+  </div>
+
+  <!-- S2: KNOT -->
+  <div class="cell cell-knot" style="grid-column:3;grid-row:4;">
+    <div class="knot-bg">
+      <div class="shirt-weave"></div>
+      <div class="collar-l"></div>
+      <div class="collar-r"></div>
+      <div class="knot-group">
+        <div class="knot-body"></div>
+        <div class="blade"></div>
+      </div>
+      <div class="knot-note">
+        <strong>Four-in-Hand</strong>
+        <span>Rigid / constricted<br>"social theatre"<br>— Debord</span>
+      </div>
+    </div>
+    <div class="cell-label"><span class="accent">↳ </span>The perfect knot · MacGuffin</div>
+    <div class="cell-num">02</div>
+  </div>
+
+  <!-- S3: MIRROR -->
+  <div class="cell cell-mirror" style="grid-column:4;grid-row:2;">
+    <div class="mirror-bg">
+      <div class="m-surface">
+        <div class="m-glow"></div>
+        <div class="m-figure"></div>
+        <div class="m-crack c1"></div><div class="m-crack c2"></div>
+        <div class="m-crack c3"></div><div class="m-crack c4"></div>
+        <div class="m-crack c5"></div><div class="m-crack c6"></div>
+        <div class="m-crack c7"></div>
+      </div>
+      <div class="m-vignette"></div>
+    </div>
+    <div class="cell-label"><span class="accent">↳ </span>Cracked mirror · fragmented identity</div>
+    <div class="m-label">
+      <span>Fragmented Simulacrum</span>
+      <em>— Baudrillard</em>
+    </div>
+  </div>
+
+  <!-- S3: DROPS -->
+  <div class="cell cell-drops" style="grid-column:4;grid-row:3;">
+    <div class="drops-bg">
+      <div class="skin-layer"></div>
+      <div class="drop dp1"></div><div class="drop dp2"></div>
+      <div class="drop dp3"></div><div class="drop dp4"></div>
+      <div class="drop dp5"></div><div class="drop dp6"></div>
+      <div class="drop dp7"></div><div class="drop dp8"></div>
+      <div class="streak str1"></div>
+      <div class="streak str2"></div>
+      <div class="streak str3"></div>
+      <div class="drops-vignette"></div>
+    </div>
+    <div class="cell-label"><span class="accent">↳ </span>Sweat ECU · frozen motion</div>
+    <div class="cell-num">03</div>
+  </div>
+
+  <!-- S3: CHIAROSCURO -->
+  <div class="cell cell-chia" style="grid-column:4;grid-row:4;">
+    <div class="chia-bg">
+      <div class="chia-shirt"></div>
+      <div class="chia-shirt-lines"></div>
+      <div class="chia-tie"></div>
+      <div class="chia-shadow"></div>
+    </div>
+    <div class="cell-label"><span class="accent">↳ </span>Chiaroscuro · shadow encroaches</div>
+    <div class="chia-label">
+      <span>Caravaggio</span>
+      <em>light surrendering to dark</em>
+    </div>
+  </div>
+
+  <!-- BOTTOM BAR -->
+  <div class="bottom-bar">
+    <div class="bb-block"><div class="bb-label"><span class="dot">◆</span>Theme</div><div class="bb-val">Conformity vs. Chaos</div></div>
+    <div class="bb-block"><div class="bb-label"><span class="dot">◆</span>Genre</div><div class="bb-val">Psychological Thriller</div></div>
+    <div class="bb-block"><div class="bb-label"><span class="dot">◆</span>MacGuffin</div><div class="bb-val red">The Red Tie</div></div>
+    <div class="bb-block"><div class="bb-label"><span class="dot">◆</span>Lighting Arc</div><div class="bb-val">Fluorescent → Chiaroscuro</div></div>
+    <div class="bb-block"><div class="bb-label"><span class="dot">◆</span>Setting</div><div class="bb-val">Sterile Chrome Bathroom</div></div>
+    <div class="bb-block"><div class="bb-label"><span class="dot">◆</span>Theory</div><div class="bb-val">Baudrillard · Debord · Lévi-Strauss</div></div>
+    <div class="bb-block"><div class="bb-label"><span class="dot">◆</span>Palette</div>
+      <div class="chips">
+        <div class="chip" style="background:#F2F0EA;border:1px solid #ccc;"></div>
+        <div class="chip" style="background:#BEC2CA;"></div>
+        <div class="chip" style="background:#7E8188;"></div>
+        <div class="chip" style="background:#42444A;"></div>
+        <div class="chip" style="background:#1E2024;"></div>
+        <div class="chip" style="background:#D42B1E;"></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PANEL 2: COSTUME BREAKDOWN
+══════════════════════════════════════════ -->
+<div class="panel" id="tab-costume">
+<div class="suit-panel">
+
+  <div class="suit-panel-header">
+    <div>
+      <div class="sph-title">Costume Design — The Everyman's Suit</div>
+      <div class="sph-sub">Character Wardrobe · Production Design Reference</div>
+    </div>
+    <div class="sph-tag">18-Year-Old Protagonist · Corporate Archetype</div>
+  </div>
+
+  <!-- FIGURE -->
+  <div class="suit-figure-col">
+    <div class="figure-svg-wrap">
+      <!-- Head -->
+      <div class="suit-head"></div>
+      <!-- Neck -->
+      <div class="suit-neck"></div>
+      <!-- Collar -->
+      <div class="suit-collar-l"></div>
+      <div class="suit-collar-r"></div>
+      <!-- Shirt front -->
+      <div class="suit-shirt-front"></div>
+      <!-- Tie -->
+      <div class="suit-tie">
+        <div class="suit-tie-knot"></div>
+        <div class="suit-tie-blade"></div>
+      </div>
+      <!-- Jacket -->
+      <div class="suit-jacket">
+        <div class="jacket-l"></div>
+        <div class="jacket-r"></div>
+        <div class="jacket-lapel-l"></div>
+        <div class="jacket-lapel-r"></div>
+        <div class="pocket-sq"></div>
+      </div>
+      <!-- Trousers -->
+      <div class="suit-trouser-l"></div>
+      <div class="suit-trouser-r"></div>
+      <!-- Shoes -->
+      <div class="suit-shoe-l"></div>
+      <div class="suit-shoe-r"></div>
+
+      <!-- Annotation dots + lines -->
+      <div class="ann-dot" style="top:48px;left:50%;"></div>
+      <div class="ann-line" style="top:48px;left:50%;width:120px;transform:translateX(0);"></div>
+      <div class="ann-text" style="top:42px;left:calc(50% + 120px);">
+        <span>Appearance</span>
+        <strong>Pale · Exhausted · Anxious</strong>
+      </div>
+
+      <div class="ann-dot" style="top:100px;left:calc(50% + 4px);"></div>
+      <div class="ann-line" style="top:100px;left:calc(50% + 4px);width:110px;"></div>
+      <div class="ann-text" style="top:94px;left:calc(50% + 114px);">
+        <span>Collar — buttoned top</span>
+        <strong>Social Constriction</strong>
+      </div>
+
+      <div class="ann-dot" style="top:118px;left:calc(50%);"></div>
+      <div class="ann-line" style="top:118px;left:0;width:calc(50%);transform:scaleX(-1);transform-origin:right;"></div>
+      <div class="ann-text" style="top:112px;right:calc(50% + 10px);">
+        <span style="text-align:right;display:block;">MacGuffin</span>
+        <strong style="display:block;text-align:right;">The Red Tie</strong>
+      </div>
+
+      <div class="ann-dot" style="top:180px;left:20px;"></div>
+      <div class="ann-line" style="top:180px;left:20px;width:calc(50% - 20px);"></div>
+      <div class="ann-text" style="top:174px;right:calc(50% + 10px);">
+        <span style="text-align:right;display:block;">Jacket</span>
+        <strong style="display:block;text-align:right;">Ill-fitting — "The System"</strong>
+      </div>
+
+      <div class="ann-dot" style="top:430px;left:calc(50% - 28px);"></div>
+      <div class="ann-line" style="top:430px;left:0;width:calc(50% - 28px);"></div>
+      <div class="ann-text" style="top:424px;right:calc(50% + 42px);">
+        <span style="text-align:right;display:block;">Trousers</span>
+        <strong style="display:block;text-align:right;">Charcoal / Black — corporate armour</strong>
+      </div>
+    </div>
+  </div>
+
+  <!-- DETAILS GRID -->
+  <div class="suit-details-col">
+
+    <div class="detail-cell">
+      <div class="dc-num">01</div>
+      <div class="dc-collar-visual">
+        <div class="dcv-collar-l"></div>
+        <div class="dcv-collar-r"></div>
+        <div class="dcv-btn"></div>
+      </div>
+      <div class="dc-label">§ Collar</div>
+      <div class="dc-title">Buttoned<br>to the Top</div>
+      <div class="dc-body">The collar must be fastened completely — no loosening, no relief. The visual constriction around the neck is the film's primary symbol of Social Constriction. It should read as uncomfortable to the audience.</div>
+      <div class="dc-cite">— Debord: the performer trapped in their own Spectacle</div>
+    </div>
+
+    <div class="detail-cell">
+      <div class="dc-num">02</div>
+      <div class="dc-tie-visual">
+        <div class="dcv-knot"></div>
+        <div class="dcv-blade"></div>
+      </div>
+      <div class="dc-label">§ The Red Tie — MacGuffin</div>
+      <div class="dc-title">Arterial<br>Red Silk</div>
+      <div class="dc-body">The only saturated colour in the entire film. Four-in-Hand knot, tied rigidly perfect. The tie IS the Spectacle — the object the protagonist is trying to perfect and failing. Silk twill — the weave texture must be visible in ECU.</div>
+      <div class="dc-cite">— The sole Binary Opposition to the grey-white world</div>
+    </div>
+
+    <div class="detail-cell">
+      <div class="dc-num">03</div>
+      <div class="dc-fabric-visual"><div class="dcfv-weave"></div></div>
+      <div class="dc-label">§ Jacket</div>
+      <div class="dc-title">Charcoal<br>Tailored Suit</div>
+      <div class="dc-body">Stiff, slightly ill-fitting — one size too formal. Dark charcoal or near-black wool. The jacket represents "Professionalism" and "The System." The stiffness should be visible in the way the character holds himself — rigid, performative posture.</div>
+      <div class="dc-cite">— The costume as Baudrillardian mask</div>
+    </div>
+
+    <div class="detail-cell">
+      <div class="dc-num">04</div>
+      <div class="dc-label">§ Shirt</div>
+      <div class="dc-title">White<br>Oxford Cloth</div>
+      <div class="dc-body">Crisp white Oxford-weave shirt. The texture of the shirt fabric should contrast sharply with the red silk tie in ECU. Perfectly ironed — part of the "Simulacrum of a perfect life." As the breakdown occurs, the shirt remains pristine — the horror is the contrast.</div>
+      <div class="dc-cite">— The sterile white of the bathroom, echoed in fabric</div>
+    </div>
+
+    <div class="detail-cell">
+      <div class="dc-num">05</div>
+      <div class="dc-shoe-visual"></div>
+      <div class="dc-label">§ Shoes</div>
+      <div class="dc-title">Black<br>Oxford Brogues</div>
+      <div class="dc-body">Plain-toe or cap-toe Oxford. Highly polished — mirror-finished. Reinforces the "chrome and reflective surfaces" motif of the bathroom setting. In an ideal shot, the fluorescent light catches the shoe just as it does the chrome taps.</div>
+      <div class="dc-cite">— Another reflective surface in a world of reflections</div>
+    </div>
+
+    <div class="detail-cell">
+      <div class="dc-num">06</div>
+      <div class="dc-label">§ Overall Costume Direction</div>
+      <div class="dc-title">The<br>Uniform</div>
+      <div class="dc-body">The suit is not clothing — it is armour that doesn't fit. Everything is "correct" by corporate convention and yet everything is slightly wrong. The audience should feel the discomfort. The red tie is the only honest thing the character wears — and it is destroying him.</div>
+      <div class="dc-cite">— "The clothes make the man, and unmake him." </div>
+    </div>
+
+    <div class="suit-bottom-bar">
+      <div class="bb-block"><div class="bb-label"><span class="dot">◆</span>Shirt</div><div class="bb-val">White Oxford Cloth</div></div>
+      <div class="bb-block"><div class="bb-label"><span class="dot">◆</span>Tie</div><div class="bb-val red">Arterial Red Silk Twill</div></div>
+      <div class="bb-block"><div class="bb-label"><span class="dot">◆</span>Jacket</div><div class="bb-val">Charcoal Wool — Slightly Ill-Fitting</div></div>
+      <div class="bb-block"><div class="bb-label"><span class="dot">◆</span>Trousers</div><div class="bb-val">Matching Charcoal / Near-Black</div></div>
+      <div class="bb-block"><div class="bb-label"><span class="dot">◆</span>Shoes</div><div class="bb-val">Black Oxford — Mirror Polish</div></div>
+      <div class="bb-block"><div class="bb-label"><span class="dot">◆</span>Key Symbolic Read</div><div class="bb-val">Constriction · Performance · Failure</div></div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PANEL 3: CHARACTER PSYCHOLOGY
+══════════════════════════════════════════ -->
+<div class="panel" id="tab-psychology">
+<div class="psych-panel">
+
+  <div class="psych-header">
+    <div>
+      <div class="sph-title">Character Psychology — The Everyman</div>
+      <div class="sph-sub">18-Year-Old Male Protagonist · Psychological Archetype · Theory-Driven Analysis</div>
+    </div>
+    <div class="sph-tag" style="margin-left:auto;">Wordless Study · Internal Breakdown</div>
+  </div>
+
+  <div class="psych-cell" style="grid-column:1;grid-row:2;">
+    <div class="pc-tag">§ 01 — Character Profile</div>
+    <div class="pc-heading">The Everyman</div>
+    <div class="pc-body">
+      An 18-year-old male protagonist — an archetype, not an individual. He has no name. He represents every young adult entering the corporate world for the first time.<br><br>
+      Appearance: Pale skin — the pallor of exhaustion and anxiety. Dark circles. A face that reads as slightly too young for the suit he wears. His expression oscillates between blankness and barely suppressed panic.<br><br>
+      His body language is rigid — performatively correct posture that reads as unnatural, as if he is imitating a photograph of a "professional" rather than actually being one.
+    </div>
+    <div class="pc-cite">— The protagonist as Baudrillardian copy: a simulation of a man who knows what he is supposed to be</div>
+    <div class="pc-bg-num">01</div>
+  </div>
+
+  <div class="psych-cell" style="grid-column:2;grid-row:2;">
+    <div class="pc-tag">§ 02 — The Psychological Arc</div>
+    <div class="pc-heading">Conformity<br>→ Chaos</div>
+    <div class="pc-body">
+      <strong style="color:var(--grey-l);font-family:'Cormorant Garamond',serif;font-size:11px;font-style:italic;">Act I — Clinical Conformity:</strong><br>
+      The character believes in the Spectacle. He is trying. The fluorescent light is his ally — he wants to be seen as perfect.<br><br>
+      <strong style="color:var(--grey-l);font-family:'Cormorant Garamond',serif;font-size:11px;font-style:italic;">Act II — The Fracture:</strong><br>
+      The tie will not cooperate. Or he will not cooperate. The mirror begins to lie. The light begins to feel like a spotlight rather than illumination.<br><br>
+      <strong style="color:var(--grey-l);font-family:'Cormorant Garamond',serif;font-size:11px;font-style:italic;">Act III — Visceral Breakdown:</strong><br>
+      The Chiaroscuro arrives. The shadow is not cast by external light — it is cast by the character himself. The water. The sweat. The red tie — impossibly red against the white — is the last image.
+    </div>
+    <div class="pc-cite">— Debord: "The spectacle is not a collection of images; it is a social relation between people mediated by images."</div>
+    <div class="pc-bg-num">02</div>
+  </div>
+
+  <div class="psych-cell" style="grid-column:3;grid-row:2;">
+    <div class="pc-tag">§ 03 — The Gaze</div>
+    <div class="pc-heading">Mirror as<br>Antagonist</div>
+    <div class="pc-body">
+      The bathroom mirror is the second character in this film. It begins as a tool — the character uses it to perfect his appearance. It ends as a threat.<br><br>
+      The cracked mirror is the film's central visual metaphor: Baudrillard's Simulacrum in physical form. The reflection is no longer a copy of the man — it is a distorted copy of a copy. The "original" self is already gone.<br><br>
+      Cinematographically, we suggest shooting reflections slightly out of register with reality — a slight tilt, a slight delay — to signal to the audience that what they are seeing is not the truth.
+    </div>
+    <div class="pc-cite">— Lacan: "The mirror stage forms the subject's first identification with an image outside themselves."</div>
+    <div class="pc-bg-num">03</div>
+  </div>
+
+  <div class="psych-cell" style="grid-column:1;grid-row:3;">
+    <div class="pc-tag">§ 04 — Emotional Register</div>
+    <div class="pc-heading">Obsessive<br>Anxiety</div>
+    <div class="pc-body">
+      The character's emotional state is anxiety — but of a specific, modern kind. It is not fear of external danger. It is the anxiety of performance: the terror of being found inadequate by an invisible, unnamed authority.<br><br>
+      He is not afraid of failing at a task. He is afraid of failing at being a person — at being the right kind of person. The suit, the tie, the mirror — these are the tests he has set himself, and he cannot pass them.
+    </div>
+    <div class="pc-cite">— Foucault: the internalized gaze of disciplinary society</div>
+    <div class="pc-bg-num">04</div>
+  </div>
+
+  <div class="psych-cell" style="grid-column:2;grid-row:3;">
+    <div class="pc-tag">§ 05 — The Body</div>
+    <div class="pc-heading">Visceral<br>Betrayal</div>
+    <div class="pc-body">
+      The body is the site of the breakdown. The sweat that appears on pale skin is not from exertion — it is from the effort of performing. The hands that plunge into cold water are seeking sensation that cuts through numbness.<br><br>
+      ECU (Extreme Close-Up) is the correct lens here: by getting physically close to the body, we deny the audience the comfort of distance. The pore, the bead of sweat, the trembling of a hand — these are intimate and involuntary truths that the costume cannot hide.
+    </div>
+    <div class="pc-cite">— The body as the site where the Simulacrum breaks down</div>
+    <div class="pc-bg-num">05</div>
+  </div>
+
+  <div class="psych-cell" style="grid-column:3;grid-row:3;">
+    <div class="pc-tag">§ 06 — The Red Tie's Role</div>
+    <div class="pc-heading">The Object<br>of Fixation</div>
+    <div class="pc-body">
+      In narrative terms, the Red Tie is a MacGuffin — the object around which the action revolves, though its literal importance is secondary to its symbolic weight.<br><br>
+      The tie is arterial red because it is the colour of blood — the body forcing its way through the costume. It is the one place where the character's internal life escapes into the visual field. It is the only honest colour in a world of performance.<br><br>
+      And yet: it is also another performance. Even the red is "correctly tied."
+    </div>
+    <div class="pc-cite">— The MacGuffin that IS the meaning, not merely the mechanism</div>
+    <div class="pc-bg-num">06</div>
+  </div>
+
+  <!-- ARC BAR -->
+  <div class="arc-bar">
+    <div class="arc-step">
+      <div class="arc-n">I</div>
+      <div class="arc-info">
+        <div class="arc-label">Emotional State</div>
+        <div class="arc-val">Controlled Anxiety</div>
+      </div>
+    </div>
+    <div class="arc-arrow">→</div>
+    <div class="arc-step">
+      <div class="arc-n">II</div>
+      <div class="arc-info">
+        <div class="arc-label">Emotional State</div>
+        <div class="arc-val">Fracturing Performance</div>
+      </div>
+    </div>
+    <div class="arc-arrow">→</div>
+    <div class="arc-step">
+      <div class="arc-n">III</div>
+      <div class="arc-info">
+        <div class="arc-label">Emotional State</div>
+        <div class="arc-val">Visceral Collapse</div>
+      </div>
+    </div>
+    <div style="flex:1;text-align:right;">
+      <div class="arc-label" style="font-size:6px;letter-spacing:0.22em;text-transform:uppercase;color:var(--grey-m);">Diagnostic</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:11px;color:var(--red-a);">Performance Anxiety → Identity Dissolution</div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PANEL 4: VISUAL ARC
+══════════════════════════════════════════ -->
+<div class="panel" id="tab-arc">
+<div class="arc-panel">
+<div class="arc-panel-inner">
+
+  <div class="arc-panel-header">
+    <div>
+      <div class="sph-title">Scene-by-Scene Visual Arc</div>
+      <div class="sph-sub">Lighting Transition · Fluorescent → Chiaroscuro · Five Beat Structure</div>
+    </div>
+    <div class="sph-tag" style="margin-left:auto;">Clinical Conformity → Visceral Breakdown</div>
+  </div>
+
+  <!-- SCENE 1 -->
+  <div class="arc-frame" style="grid-column:1;grid-row:2;">
+    <div class="scene-bg-1 scene-frame">
+      <div class="s1-tiles">
+        <div class="s1-tile"></div><div class="s1-tile"></div><div class="s1-tile"></div><div class="s1-tile"></div><div class="s1-tile"></div><div class="s1-tile"></div><div class="s1-tile"></div>
+        <div class="s1-tile"></div><div class="s1-tile"></div><div class="s1-tile"></div><div class="s1-tile"></div><div class="s1-tile"></div><div class="s1-tile"></div><div class="s1-tile"></div>
+        <div class="s1-tile"></div><div class="s1-tile"></div><div class="s1-tile"></div><div class="s1-tile"></div><div class="s1-tile"></div><div class="s1-tile"></div><div class="s1-tile"></div>
+        <div class="s1-tile"></div><div class="s1-tile"></div><div class="s1-tile"></div><div class="s1-tile"></div><div class="s1-tile"></div><div class="s1-tile"></div><div class="s1-tile"></div>
+        <div class="s1-tile"></div><div class="s1-tile"></div><div class="s1-tile"></div><div class="s1-tile"></div><div class="s1-tile"></div><div class="s1-tile"></div><div class="s1-tile"></div>
+      </div>
+      <div class="s1-light"></div>
+    </div>
+    <div class="frame-num">01 / 05</div>
+    <div class="frame-label">
+      <span style="color:rgba(0,0,0,0.4);">The Setting</span>
+      <em style="color:rgba(0,0,0,0.35);">Sterile bathroom — full fluorescent</em>
+    </div>
+    <div class="frame-red-bar"></div>
+  </div>
+
+  <!-- SCENE 2 -->
+  <div class="arc-frame" style="grid-column:2;grid-row:2;">
+    <div class="scene-bg-2 scene-frame" style="background:linear-gradient(160deg,#B8B8B4,#909090);">
+      <div class="s2-figure">
+        <div class="s2-head"></div>
+        <div class="s2-suit"></div>
+        <div class="s2-tie"></div>
+      </div>
+    </div>
+    <div class="frame-num">02 / 05</div>
+    <div class="frame-label">
+      <span style="color:rgba(255,255,255,0.3);">Medium Shot</span>
+      <em style="color:rgba(255,255,255,0.25);">The Everyman — suit &amp; tie</em>
+    </div>
+    <div class="frame-red-bar"></div>
+  </div>
+
+  <!-- SCENE 3 -->
+  <div class="arc-frame" style="grid-column:3;grid-row:2;">
+    <div class="scene-frame" style="background:#160e0e;overflow:hidden;">
+      <div class="s3-silk"></div>
+      <div class="s3-depth"></div>
+    </div>
+    <div class="frame-num">03 / 05</div>
+    <div class="frame-label">
+      <span style="color:rgba(255,255,255,0.35);">ECU — Macro</span>
+      <em style="color:rgba(255,180,160,0.4);">Red silk weave — the MacGuffin</em>
+    </div>
+    <div class="frame-red-bar"></div>
+  </div>
+
+  <!-- SCENE 4 -->
+  <div class="arc-frame" style="grid-column:4;grid-row:2;">
+    <div class="scene-frame" style="background:#141618;overflow:hidden;position:relative;">
+      <div class="s4-bg"></div>
+      <div class="s4-drops">
+        <div class="s4-drop sd1"></div>
+        <div class="s4-drop sd2"></div>
+        <div class="s4-drop sd3"></div>
+        <div class="s4-drop sd4"></div>
+        <div class="s4-drop sd5"></div>
+      </div>
+      <div class="s4-vignette"></div>
+    </div>
+    <div class="frame-num">04 / 05</div>
+    <div class="frame-label">
+      <span style="color:rgba(255,255,255,0.3);">ECU — Visceral</span>
+      <em style="color:rgba(255,255,255,0.2);">Sweat · water · frozen motion</em>
+    </div>
+    <div class="frame-red-bar"></div>
+  </div>
+
+  <!-- SCENE 5 -->
+  <div class="arc-frame" style="grid-column:5;grid-row:2;">
+    <div class="scene-frame" style="background:#040404;overflow:hidden;position:relative;">
+      <div class="s5-shirt"></div>
+      <div class="s5-tie"></div>
+      <div class="s5-shadow"></div>
+    </div>
+    <div class="frame-num">05 / 05</div>
+    <div class="frame-label">
+      <span style="color:rgba(255,255,255,0.25);">Chiaroscuro</span>
+      <em style="color:rgba(255,180,160,0.35);">Shadow claims the frame</em>
+    </div>
+    <div class="frame-red-bar"></div>
+  </div>
+
+  <!-- INTENSITY BAR -->
+  <div class="intensity-bar">
+    <div class="ib-label">Tonal Intensity Gradient — Conformity → Breakdown</div>
+    <div class="ib-gradient">
+      <div class="ib-markers">
+        <div class="ib-marker">Clinical</div>
+        <div class="ib-marker">Sterile</div>
+        <div class="ib-marker dark">Ominous</div>
+        <div class="ib-marker dark">Dark</div>
+        <div class="ib-marker dark">Collapse</div>
+      </div>
+    </div>
+    <div class="ib-labels">
+      <div class="ib-end-label">Fluorescent · High-Key · White</div>
+      <div class="ib-end-label red">Chiaroscuro · Arterial Red · Black</div>
+    </div>
+  </div>
+
+  <!-- BOTTOM BAR -->
+  <div class="arc-bottom">
+    <div class="bb-block"><div class="bb-label"><span class="dot">◆</span>Scene 01</div><div class="bb-val">Sterile Bathroom — Full Fluorescent</div></div>
+    <div class="bb-block"><div class="bb-label"><span class="dot">◆</span>Scene 02</div><div class="bb-val">Medium Shot — The Everyman</div></div>
+    <div class="bb-block"><div class="bb-label"><span class="dot">◆</span>Scene 03</div><div class="bb-val red">ECU Red Silk — The MacGuffin</div></div>
+    <div class="bb-block"><div class="bb-label"><span class="dot">◆</span>Scene 04</div><div class="bb-val">Visceral ECU — Sweat &amp; Water</div></div>
+    <div class="bb-block"><div class="bb-label"><span class="dot">◆</span>Scene 05</div><div class="bb-val">Chiaroscuro — Shadow Arrives</div></div>
+    <div class="bb-block"><div class="bb-label"><span class="dot">◆</span>Arc</div><div class="bb-val">Clinical Light → Visceral Dark</div></div>
+  </div>
+
+</div>
+</div>
+</div>
+
+</div><!-- /wrapper -->
+
+<script>
+// Tab switching
+document.querySelectorAll('.tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    const target = 'tab-' + tab.dataset.tab;
+    document.getElementById(target).classList.add('active');
+  });
+});
+
+// Responsive scale
+function scale() {
+  const w = document.getElementById('wrapper');
+  const vw = window.innerWidth;
+  if (vw < 1460) {
+    const s = vw / 1440;
+    w.style.transform = `scale(${s})`;
+    w.style.transformOrigin = 'top left';
+    w.style.width = '1440px';
+    document.body.style.height = (window.innerHeight / s) + 'px';
+  } else {
+    w.style.transform = '';
+    w.style.width = '1440px';
+  }
+}
+scale();
+window.addEventListener('resize', scale);
+</script>
+</body>
+</html>
